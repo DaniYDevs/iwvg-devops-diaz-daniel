@@ -7,9 +7,9 @@ public class User {
     private String id;
     private String name;
     private String familyName;
-    //private List<Fraction> fractions;
+    private List<Fraction> fractions;
 
-    /*public User() {
+    public User() {
         this.fractions = new ArrayList<>();
     }
 
@@ -18,7 +18,7 @@ public class User {
         this.name = name;
         this.familyName = familyName;
         this.fractions = fractions;
-    }*/
+    }
 
     public String getId() {
         return id;
@@ -40,7 +40,7 @@ public class User {
         this.familyName = familyName;
     }
 
-    /*public List<Fraction> getFractions() {
+    public List<Fraction> getFractions() {
         return fractions;
     }
 
@@ -50,7 +50,7 @@ public class User {
 
     public void addFraction(Fraction fraction) {
         this.fractions.add(fraction);
-    }*/
+    }
 
     public String fullName() {
         return this.name + " " + this.familyName;
@@ -60,7 +60,7 @@ public class User {
         return this.name.charAt(0) + ".";
     }
 
-    /*@Override
+    @Override
     public String toString() {
         return "User{" +
                 "id='" + id + '\'' +
@@ -68,5 +68,5 @@ public class User {
                 ", familyName='" + familyName + '\'' +
                 ", fractions=" + fractions +
                 '}';
-    }*/
+    }
 }

@@ -40,4 +40,17 @@ public class Fraction {
                 ", denominator=" + denominator +
                 '}';
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Fraction fraction = (Fraction) o;
+        return numerator == fraction.numerator && denominator == fraction.denominator;
+    }
+
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(numerator, denominator);
+    }
+
 }

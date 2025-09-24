@@ -4,11 +4,10 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class UsersDatabase {
-    //public Stream<User> findAll()
-    private String hola = " ";
-    public void findAll() {
 
-        /*List<Fraction> fractions1 = List.of(
+    public Stream<User> findAll() {
+
+        List<Fraction> fractions1 = List.of(
                 new Fraction(0, 1),
                 new Fraction(1, 1),
                 new Fraction(2, 1)
@@ -48,6 +47,6 @@ public class UsersDatabase {
                 new User("4", "Paula", "Torres", fractions4),
                 new User("5", "Antonio", "Blanco", fractions5),
                 new User("6", "Paula", "Torres", fractions6)
-        );*/
+        );
     }
 }
