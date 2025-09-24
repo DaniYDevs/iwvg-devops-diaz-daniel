@@ -37,7 +37,7 @@ class FractionTest {
         assertThat(fraction.decimal()).isEqualTo(0.5);
     }
 
-    /*@Test
+    @Test
     void testIsProper() {
         assertThat(new Fraction(1, 2).isProper()).isTrue();
         assertThat(new Fraction(3, 2).isProper()).isFalse();
@@ -111,5 +111,5 @@ class FractionTest {
         assertThat(f1).isEqualTo(f2);
         assertThat(f1.hashCode()).isEqualTo(f2.hashCode());
         assertThat(f1).isNotEqualTo(f3);
-    }*/
+    }
 }
