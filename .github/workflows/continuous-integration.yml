@@ -51,3 +51,12 @@ jobs:
         with:
           category: "/language:java"
 
+      - name: 📊 Sonar Analysis
+        run: >
+          mvn -B sonar:sonar 
+          -Dsonar.projectKey=daniydevs_${{ env.ARTIFACT }}
+          -Dsonar.organization=daniydevs
+          -Dsonar.host.url=https://sonarcloud.io 
+          -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
