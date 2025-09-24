@@ -28,14 +28,8 @@ jobs:
         run: |
           echo "VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
           echo "ARTIFACT=$(mvn help:evaluate -Dexpression=project.artifactId -q -DforceStdout)" >> $GITHUB_ENV
+          echo "REPOSITORY_LC=$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
 
-      # 1º Crear Token de Acceso Personal:
-      #    GitHub → Settings → Developer settings → Personal access tokens → Generate new token (classic)
-      #    Permisos mínimos: write:packages, read:packages, delete:packages, repo
-      #
-      # 2º Crear secret en GitHub:
-      #    Repo → Settings → Secrets and variables → Actions → New repository secret
-      #    Name: GHCR_PERSONAL_ACCESS_TOKEN, Value: <tu token>
       - name: 📦 Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
@@ -49,8 +43,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ env.GHCR_URL }}/${{ env.REPOSITORY }}:${{ env.VERSION }}
-            ${{ env.GHCR_URL }}/${{ env.REPOSITORY }}:latest
+            ${{ env.GHCR_URL }}/${{ env.REPOSITORY_LC }}:${{ env.VERSION }}
+            ${{ env.GHCR_URL }}/${{ env.REPOSITORY_LC }}:latest
 
       # 🌐 Render Deployment
       # 1. En Render: Web Service → Settings → Deploy Hook → copiar el token
