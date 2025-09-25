@@ -15,13 +15,11 @@ public class Searches {
                 .filter(user -> user.getId().equals(id))
                 .flatMap(user -> {
                     List<Fraction> fractions = user.getFractions();
-                    return IntStream.range(0, fractions.size() - 1)
-                            .mapToObj(i -> {
-                                Fraction a = fractions.get(i);
-                                Fraction b = fractions.get(i + 1);
-                                Fraction result = a.divide(b);
-                                return result.toString();
-                            });
+                    return fractions.stream()
+                            .flatMap(a -> fractions.stream()
+                                    .filter(b -> b != a)
+                                    .map(b -> a.divide(b).toString())
+                            );
                 });
     }
 
