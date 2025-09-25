@@ -1,5 +1,6 @@
 package es.upm.miw.devops.functionaltests;
 
+import es.upm.miw.devops.code.Fraction;
 import es.upm.miw.devops.code.Searches;
 import org.junit.jupiter.api.Test;
 
@@ -29,5 +30,16 @@ public class SearchesTest {
         List<String> result = searches.findUserNameBySomeImproperFraction().toList();
 
         assertThat(result).containsExactlyInAnyOrder("Oscar", "Ana", "Paula");
+    }
+
+    @Test
+    void findFirstProperFractionByUserId(){
+        Searches searches = new Searches();
+
+        Fraction result = searches.findFirstProperFractionByUserId("2");
+
+        assertThat(result.getNumerator()).isEqualTo(-1);
+        assertThat(result.getDenominator()).isEqualTo(5);
+
     }
 }
