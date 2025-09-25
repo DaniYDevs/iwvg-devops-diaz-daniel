@@ -51,8 +51,17 @@ public class SearchesTest {
 
         assertThat(result).containsExactly(
                 "Fraction{numerator=10, denominator=-1}",
+                "Fraction{numerator=8, denominator=2}",
+                "Fraction{numerator=6, denominator=4}",
+                "Fraction{numerator=-1, denominator=10}",
                 "Fraction{numerator=-4, denominator=10}",
-                "Fraction{numerator=6, denominator=16}"
+                "Fraction{numerator=-3, denominator=20}",
+                "Fraction{numerator=2, denominator=8}",
+                "Fraction{numerator=10, denominator=-4}",
+                "Fraction{numerator=6, denominator=16}",
+                "Fraction{numerator=4, denominator=6}",
+                "Fraction{numerator=20, denominator=-3}",
+                "Fraction{numerator=16, denominator=6}"
         );
     }
 }
