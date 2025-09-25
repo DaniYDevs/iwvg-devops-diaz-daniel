@@ -21,4 +21,13 @@ public class SearchesTest {
         assertThat(decimals)
                 .containsExactly(1.0, 2.0, 1.0);
     }
+
+    @Test
+    void testFindUserNameBySomeImproperFraction() {
+        Searches searches = new Searches();
+
+        List<String> result = searches.findUserNameBySomeImproperFraction().toList();
+
+        assertThat(result).containsExactlyInAnyOrder("Oscar", "Ana", "Paula");
+    }
 }
