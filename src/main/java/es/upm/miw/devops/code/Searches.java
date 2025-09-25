@@ -25,8 +25,12 @@ public class Searches {
     }*/
 
 
-    /*public Stream<String> findUserNameBySomeImproperFraction() {
-        return Stream.empty();
-    }*/
+    public Stream<String> findUserNameBySomeImproperFraction() {
+        UsersDatabase usersDatabase = new UsersDatabase();
 
+        return usersDatabase.findAll()
+                .filter(user -> user.getFractions().stream().anyMatch(Fraction::isImproper))
+                .map(User::getName)
+                .distinct();
+    }
 }
