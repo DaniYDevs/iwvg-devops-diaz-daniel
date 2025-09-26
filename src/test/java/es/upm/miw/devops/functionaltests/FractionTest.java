@@ -108,8 +108,9 @@ class FractionTest {
         Fraction f2 = new Fraction(1, 2);
         Fraction f3 = new Fraction(2, 3);
 
-        assertThat(f1).isEqualTo(f2);
-        assertThat(f1.hashCode()).isEqualTo(f2.hashCode());
-        assertThat(f1).isNotEqualTo(f3);
+        assertThat(f1)
+                .isEqualTo(f2)
+                .hasSameHashCodeAs(f2)
+                .isNotEqualTo(f3);
     }
 }
