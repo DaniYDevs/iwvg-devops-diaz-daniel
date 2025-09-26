@@ -37,4 +37,35 @@ class UserTest {
                 .hasSize(2)
                 .containsExactly(new Fraction(1, 2), new Fraction(3, 4));
     }
+
+    @Test
+    void testEmptyConstructorAndSetters() {
+        User user = new User();  // usa el constructor vacío
+        user.setName("Ana");
+        user.setFamilyName("García");
+        user.setFractions(new ArrayList<>());
+
+        assertThat(user.getName()).isEqualTo("Ana");
+        assertThat(user.getFamilyName()).isEqualTo("García");
+        assertThat(user.getFractions()).isEmpty();
+    }
+
+    @Test
+    void testAddFraction() {
+        User user = new User("10", "Pepe", "López", new ArrayList<>());
+        Fraction fraction = new Fraction(5, 7);
+
+        user.addFraction(fraction);
+
+        assertThat(user.getFractions()).containsExactly(fraction);
+    }
+
+    @Test
+    void testToStringContainsFields() {
+        User user = new User("20", "Laura", "Sánchez", new ArrayList<>());
+
+        String result = user.toString();
+
+        assertThat(result).contains("Laura").contains("Sánchez").contains("20");
+    }
 }
